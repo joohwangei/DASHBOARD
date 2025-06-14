@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #1e1e2f;
+  color: #e0e0e0;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #12121c;
+  padding: 20px 0;
+  position: fixed;
+  height: 100%;
+  border-right: 1px solid #333;
+}
+
+.sidebar h2.logo {
+  color: #f54242;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 15px 25px;
+  color: #bbb;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #2a2a3d;
+  color: #fff;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  flex-grow: 1;
+  background-color: #252537;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f54242;
+}
+
+.toggle-btn {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #f54242;
+}
+
+.dashboard-cards {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* Support clickable cards with <a> */
+.dashboard-cards a.card {
+  text-decoration: none;
+  color: inherit;
+  background-color: #2e2e44;
+  padding: 20px;
+  border-left: 5px solid #f54242;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+.dashboard-cards a.card:hover {
+  transform: translateY(-5px);
+  background-color: #3a3a55;
+}
+
+.card strong {
+  font-size: 20px;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    left: -250px;
+    position: absolute;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding-top: 60px;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+}
+
+.section-title {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #f54242;
+  font-size: 24px;
+}
+
+.chart-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin-top: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.chart-preview a {
+  background-color: #1e293b; /* dark background */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  width: 45%;  /* two per row */
+  color: #f1f5f9;
+}
+
+.chart-preview a:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.chart-preview canvas {
+  width: 100% !important;
+  height: auto !important;
+  margin-top: 10px;
+  transition: transform 0.3s ease;
+}
+
+.chart-preview:hover canvas {
+  transform: scale(1.05);
+}
+
